@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iyece | أعمالي</title>
+  <meta name="description" content="أعمال iyece — مصمم ومطوّر ألعاب: تكية (ألعاب جماعية أونلاين) وكلمة (لعبة تخمين الكلمات العربية اليومية)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="iyece | أعمالي" />
+  <meta property="og:description" content="ألعاب ويب عربية تُلعب من الجوال بدون تحميل." />
+  <meta name="theme-color" content="#0E1420" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/173010746?v=4&s=64" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0E1420;
+      --card: #161F30;
+      --line: #24304A;
+      --text: #EAF0FA;
+      --muted: #94A3BD;
+      --teal: #3DDBC4;
+      --teal-soft: #7BE9D9;
+      --gold: #E7A93D;
+      --blue: #38BDF8;
+      --green: #4ADE80;
+      --purple: #B79CFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Estedad", "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(14, 20, 32, .85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; }
+    .brand img { width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--teal); }
+    nav { display: flex; gap: 22px; font-size: 15px; color: var(--muted); }
+    nav a:hover { color: var(--teal); }
+
+    /* Hero */
+    .hero { padding: 88px 0 64px; text-align: center; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: -40% 10% auto; height: 520px;
+      background: radial-gradient(closest-side, rgba(61, 219, 196, .18), transparent);
+      pointer-events: none;
+    }
+    .hero img.avatar {
+      width: 112px; height: 112px; border-radius: 50%;
+      border: 3px solid var(--teal); margin-bottom: 22px; position: relative;
+    }
+    .hero h1 { font-size: clamp(32px, 6vw, 54px); font-weight: 800; line-height: 1.3; position: relative; }
+    .hero h1 span { color: var(--teal); }
+    .hero p { color: var(--muted); font-size: clamp(16px, 2.4vw, 19px); max-width: 620px; margin: 16px auto 30px; position: relative; }
+    .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 12px; font-weight: 600; font-size: 15px;
+      border: 1px solid var(--line); background: var(--card); transition: .2s;
+    }
+    .btn:hover { border-color: var(--teal); transform: translateY(-2px); }
+    .btn.primary { background: var(--teal); color: #06231F; border-color: var(--teal); }
+    .btn.primary:hover { background: var(--teal-soft); }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    .label { color: var(--teal); font-size: 14px; font-weight: 600; letter-spacing: .5px; }
+    h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin: 4px 0 8px; }
+    .sub { color: var(--muted); margin-bottom: 28px; max-width: 680px; }
+
+    /* Featured project */
+    .feature {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 0;
+      background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+    }
+    .feature .shot { background: #0A0F18; display: flex; align-items: center; }
+    .feature .shot img { width: 100%; display: block; }
+    .feature .body { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+    .feature h3 { font-size: 28px; font-weight: 800; }
+    .feature h3 small { color: var(--teal); font-size: 16px; font-weight: 600; margin-inline-start: 8px; }
+    .feature p { color: var(--muted); margin: 10px 0 18px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .tag { font-size: 13px; padding: 3px 12px; border-radius: 999px; background: rgba(255, 255, 255, .05); border: 1px solid var(--line); color: var(--muted); }
+
+    /* Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+    .card {
+      --c: var(--teal);
+      display: flex; flex-direction: column;
+      background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px;
+      border-top: 3px solid var(--c); transition: .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--c); }
+    .card .kind { color: var(--c); font-size: 13px; font-weight: 600; }
+    .card h3 { font-size: 21px; font-weight: 800; margin: 2px 0 6px; }
+    .card p { color: var(--muted); font-size: 15px; flex: 1; }
+    .card .go { margin-top: 16px; color: var(--c); font-weight: 600; font-size: 14px; }
+    .card.wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 24px; }
+    .card.wide .tiles { display: flex; gap: 6px; direction: rtl; flex-shrink: 0; }
+    .card.wide .tiles b {
+      width: 46px; height: 46px; border-radius: 6px; display: grid; place-items: center;
+      font-size: 22px; font-weight: 800; color: #fff;
+    }
+    .t-g { background: #538D4E; } .t-y { background: #B59F3B; } .t-x { background: #3A3A3C; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .skill { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+    .skill h4 { font-size: 17px; margin-bottom: 6px; color: var(--teal-soft); }
+    .skill p { color: var(--muted); font-size: 15px; }
+
+    footer { border-top: 1px solid var(--line); padding: 32px 0; text-align: center; color: var(--muted); font-size: 14px; }
+    footer a { color: var(--teal); }
+
+    @media (max-width: 760px) {
+      nav { display: none; }
+      .hero { padding: 56px 0 40px; }
+      .feature { grid-template-columns: 1fr; }
+      .feature .body { padding: 24px; }
+      .card.wide { flex-direction: column; align-items: flex-start; }
+      .card.wide .tiles b { width: 40px; height: 40px; font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <img src="https://avatars.githubusercontent.com/u/173010746?v=4&s=96" alt="" />
+        iyece
+      </a>
+      <nav>
+        <a href="#takya">تكية</a>
+        <a href="#games">الألعاب</a>
+        <a href="#skills">التقنيات</a>
+        <a href="#contact">تواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="wrap">
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/173010746?v=4&s=240" alt="iyece" />
+        <h1>أصمّم وأطوّر <span>ألعاب ويب عربية</span></h1>
+        <p>ألعاب جماعية تُلعب من الجوال مباشرة — بدون تحميل تطبيق، وبمزامنة حيّة بين اللاعبين.</p>
+        <div class="actions">
+          <a class="btn primary" href="#takya">شوف أعمالي</a>
+          <a class="btn" href="https://github.com/iyece" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="takya">
+      <div class="wrap">
+        <div class="label">المشروع الرئيسي</div>
+        <h2>تكية</h2>
+        <p class="sub">منصة ألعاب جماعية أونلاين صمّمتها وطوّرتها بالكامل، من الهوية البصرية إلى الخوادم.</p>
+
+        <div class="feature">
+          <a class="shot" href="https://takya.games" target="_blank" rel="noopener">
+            <img src="https://takya.games/assets/og/hub-v2.png" alt="واجهة موقع تكية" loading="lazy" />
+          </a>
+          <div class="body">
+            <h3>تكية <small>Takya</small></h3>
+            <p>كل الألعاب الجماعية بمكان واحد. يفتح المضيف غرفة ويرسل الكود لأصحابه، والكل يدخل من جواله ويلعب بالوقت الفعلي — استنتاج، تخمين، معلومات، وخداع.</p>
+            <div class="tags">
+              <span class="tag">غرف بكود</span>
+              <span class="tag">مزامنة حيّة</span>
+              <span class="tag">حسابات واشتراكات</span>
+              <span class="tag">لوحة إدارة</span>
+              <span class="tag">PWA</span>
+            </div>
+            <div class="actions" style="justify-content:flex-start">
+              <a class="btn primary" href="https://takya.games" target="_blank" rel="noopener">takya.games ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="games">
+      <div class="wrap">
+        <div class="label">الألعاب</div>
+        <h2>ألعاب طوّرتها</h2>
+        <p class="sub">كل لعبة لها هويتها وقواعدها، وكلها تشتغل من المتصفح.</p>
+
+        <div class="grid">
+          <a class="card" style="--c:var(--gold)" href="https://takya.games/Baynna1/" target="_blank" rel="noopener">
+            <span class="kind">استنتاج اجتماعي · ٣ لاعبين فأكثر</span>
+            <h3>بيننا واحد</h3>
+            <p>الكل يجاوب على نفس السؤال إلا واحد بينكم — اكتشفوه قبل ما يقنعكم. أكثر من ١٣٠ زوج سؤال في ٢٣ تصنيف.</p>
+            <span class="go">العب ↗</span>
+          </a>
+
+          <a class="card" style="--c:var(--blue)" href="https://takya.games/Meen/" target="_blank" rel="noopener">
+            <span class="kind">تخمين · لاعبَين</span>
+            <h3>مين؟</h3>
+            <p>كل واحد يختار شخصية سرية، وبالأسئلة تعرف مين شخصية خصمك قبل يعرف شخصيتك.</p>
+            <span class="go">العب ↗</span>
+          </a>
+
+          <a class="card" style="--c:var(--green)" href="https://takya.games/Theeb/" target="_blank" rel="noopener">
+            <span class="kind">معلومات ومزايدة · لاعبَين فأكثر</span>
+            <h3>لك ولا للذيب؟</h3>
+            <p>٥ فقرات من الأسئلة والمزايدة بذكاء، وبالنهاية الفلوس تتقسم على أول ٣.</p>
+            <span class="go">العب ↗</span>
+          </a>
+
+          <a class="card" style="--c:var(--purple)" href="https://takya.games/Kalam/" target="_blank" rel="noopener">
+            <span class="kind">معلومات وخداع · جماعية</span>
+            <h3>أي كلام</h3>
+            <p>كل لاعب يكتب إجابة تبان صحيحة، وبعدها تحاولون تعرفون الإجابة الصحيحة من بينها.</p>
+            <span class="go">العب ↗</span>
+          </a>
+
+          <a class="card wide" style="--c:#538D4E" href="https://play-kalima.web.app" target="_blank" rel="noopener">
+            <div class="tiles" aria-hidden="true">
+              <b class="t-g">ك</b><b class="t-y">ل</b><b class="t-x">م</b><b class="t-g">ـ</b><b class="t-g">ة</b>
+            </div>
+            <div>
+              <span class="kind">لعبة كلمات يومية · فردية</span>
+              <h3>كلمة</h3>
+              <p>خمّن الكلمة العربية المكوّنة من ٥ حروف في ٦ محاولات. كلمة جديدة كل يوم، وتتثبّت على الجوال كتطبيق.</p>
+              <span class="go">العب ↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="label">التقنيات</div>
+        <h2>وش أستخدم</h2>
+        <p class="sub">أبني كل شي من الواجهة إلى الخادم.</p>
+
+        <div class="skills">
+          <div class="skill">
+            <h4>الواجهات</h4>
+            <p>HTML و CSS و JavaScript، تصميم عربي RTL متجاوب للجوال، وتطبيقات PWA.</p>
+          </div>
+          <div class="skill">
+            <h4>الوقت الفعلي</h4>
+            <p>Firebase Firestore للمزامنة الحيّة بين اللاعبين، مع قواعد حماية وتسجيل دخول.</p>
+          </div>
+          <div class="skill">
+            <h4>الخوادم والاستضافة</h4>
+            <p>Firebase Hosting و Cloudflare Workers، وربط بوابات الدفع الإلكتروني.</p>
+          </div>
+          <div class="skill">
+            <h4>تصميم الألعاب</h4>
+            <p>قواعد اللعب، أنظمة النقاط، بنوك الأسئلة، والهوية البصرية لكل لعبة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap" style="text-align:center">
+        <div class="label">تواصل</div>
+        <h2>عندك فكرة لعبة؟</h2>
+        <p class="sub" style="margin-inline:auto">يسعدني أسمع منك.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/iyece" target="_blank" rel="noopener">github.com/iyece</a>
+          <a class="btn" href="https://takya.games" target="_blank" rel="noopener">takya.games</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="y">2026</span> iyece · مبني على <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></div>
+  </footer>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
